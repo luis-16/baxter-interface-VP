@@ -1,0 +1,14 @@
+    def funcion_PROGRAM (self):
+        robot.mover_cabeza(0)
+        time.sleep(0.5)
+        robot.mover_TCD(['D',0,0,0,0,0,0,0])
+        time.sleep(0.5)
+        robot.mover_home()
+        time.sleep(0.5)
+        for X in range(1):
+            robot.mover_home()
+            time.sleep(0.5)
+        if 2 > 1:
+            robot.mover_home()
+            time.sleep(0.5)
+

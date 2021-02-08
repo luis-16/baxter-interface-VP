@@ -1,0 +1,10 @@
+    def funcion_NaN (self):
+        for X in range(1):
+            if 2 > 1:
+                print
+            else:
+                robot.funcion_()
+                time.sleep(0.5)
+                if 2 > 1:
+                    print
+
