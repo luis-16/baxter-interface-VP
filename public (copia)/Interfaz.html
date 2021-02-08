@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/Interfaz/estilos.css">
+    <script type="text/javascript" src="/Interfaz/funciones.js"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+</head>
+<body>
+    <!--Barra de menus o cinta de opciones superior -->
+    <div id="Barra_opciones">
+        <div id = "logoEIA"></div>
+        <nav>
+            <ul>
+                <li>Archivo
+                    <div class="opcion_escogida">
+                        <a onclick="nuevo()">Nuevo</a>
+                        <a onclick="guardar()">Guardar</a>
+                        <a onclick="guardar_como()">Guardar como</a>
+                        <a onclick="abrir()">Abrir</a>
+                        <!--            
+                        <a onclick="descargar()">Descargar</a>                            
+                        -->   
+                    </div>                
+                </li>
+                <li>Simular
+                    <div class="opcion_escogida">
+                        <a onclick="programar('simulacion')">Simular</a>
+                        <!--
+                            
+                        <a onclick="configurar_simulacion()">Configurar </a>
+                        <a onclick="video_simulacion()">Ver video </a>
+                        -->
+                    </div>  
+                </li>
+                <li>Programar
+                    <div class="opcion_escogida">
+                        <a onclick="programar('programar')">Programar</a>
+                        <a onclick="subfuncion('/subfuncion')">crear subfunción</a>
+                    </div>  
+                </li>
+                <li>Ayuda
+                    <div class="opcion_escogida">
+                        <a onclick="abrir_ejemplo()">Ejemplos</a>
+                        <a id="cuadricula" onclick="cuadricula()">Cuadricula</a>
+                    </div>  
+                </li>
+            </ul>
+        </nav>
+        
+        <div id = "logout" onclick="salir(1)"></div>
+        <!--
+        <div id="Estado">Estado de la conexión
+            <br>
+            <div id= "estado-conexion">Estado</div>
+            <div id= "direccion-ip">198.162.0.0</div>
+        </div>
+        -->
+    </div> 
+    
+    <!-- Contenedor donde estan los bloques-->
+    <div id="contenedor-derecho">
+        <!-- Contenedor donde estan los bloques-->
+        <div id="contenedor-drag">
+
+                <div id="titulo-contenedor-drag">Lista de bloques</div>
+            <center>
+                <br>
+                <div id="objetoA" draggable="true">
+                    <svg class="svg">
+                        <ellipse class="objetoA" cx="55" cy="20" rx="52" ry="17" />
+                    </svg>   
+                    <div id="nodo_superiorA" class="nodo_inicio Hidden"></div>
+                    INICIO
+                    <div id="nodo_inferiorA" class="nodo_inicio"></div>
+                </div>
+                <br>
+                <div id="objetoB" draggable="true">                    
+                    <svg class="svg">
+                        <polygon class="objetoB" points="0,20 55,37 110,20 55,3" />
+                    </svg>                    
+                    <div id="nodo_superiorB" class="nodo_inicio"></div>
+                    SI   
+                    <div id="nodo_inferiorB" class="nodo_dentro"></div>
+                     
+                    <div id="nodo_izquierdoB" class="nodo_inicio"></div>
+                    <div id="nodo_derechoB" class="nodo_dentro Hidden"></div>
+                </div>
+                <br>
+                <div id="objetoC" draggable="true">
+                    <svg class="svg">
+                        <rect class="objetoC" x="3" y="3" rx="8" ry="8" width="104" height="34" /> <!--style="fill:blue;stroke:blue;stroke-width:3;opacity:1" -->
+                    </svg>
+                    <div id="nodo_superiorC" class="nodo_inicio"></div>
+                    ACCIÓN
+                    <div id="nodo_inferiorC" class="nodo_inicio"></div>
+                </div>
+                <br>
+                <div id="objetoD" draggable="true">                    
+                    <svg class="svg">
+                        <polygon class="objetoD" points="3,20 20,37 90,37 107,20 90,3 20,3" />
+                    </svg>
+                    <div id="nodo_superiorD" class="nodo_inicio"></div>
+                    PARA
+                    <div id="nodo_inferiorD" class="nodo_dentro"></div>
+
+                    <div id="nodo_izquierdoD" class="nodo_inicio"></div>
+                </div>
+                <br>
+            </center>
+            <input id = "COLOR" type="color" onchange="color()">   
+            <br>
+            <div id = "logo_mecatronica"></div>
+        </div>
+        <!-- Contenedor donde estan las variables-->
+        <!--
+        <div id= "contenedor-variables">
+            <div id="titulo-contenedor-variables">Listado de variables 
+                <div id="añadir-variable" onclick="añadir_variable()"></div>
+                <div id="eliminar-variable" hidden="true"></div>
+            </div>
+            <br>
+        </div>
+        -->
+    </div>
+    <div id="contenedor-tabs">
+        <div id="tabs">
+            <div id="tab_" title = "proyecto 1">
+                proyecto 1
+                <div id="X"></div>
+            </div>
+            <div id="añadir-pestaña" onclick="nuevo()"></div><!--  <div id="añadir-pestaña" onclick="añadir_pestaña()"></div> -->
+        </div>
+        <!-- Contenedor donde se sueltan los bloques-->
+        <div id="contenedor-tab">
+            <div id="contenedor-drop" onmousemove="Hacer_camino(event)">
+                <svg id = "SVG"></svg>
+            </div>
+        </div>        
+    </div>    
+    <!-- Contenedor donde esta las fucnion y se puede-->
+    <div id= "contenedor-funciones">
+        <div id="titulo-contenedor-funciones">Listado de funciones</div>
+        <br>
+        <div id = "parametro_funcion">
+            <center id = "Selector_centrado" >
+                Parametro del bloque
+                <br>
+                <select id = "selector"></select><!-- onchange="seleccionar_opcion()"-->
+            </center> 
+            
+            <br>
+            <div id = "opciones_bloques"></div>
+        </div>        
+        
+        <!--
+        <br>
+        <button id="programador" onclick="programar()">programador</button>
+        <button id="guardar" onclick="guardar()">guardar</button>        
+        <button id="abrir" onclick="abrir()">abrir</button>
+        <button id="nuevo" onclick="nuevo()">nuevo</button>
+        -->
+        <!--
+        <iframe src="hola.html" frameborder="0"></iframe>
+        -->
+    </div>
+
+    <script src="/Jquery/jquery-3.5.1.slim.min.js"></script>
+    <script src="/Jquery/jquery-3.5.1.min.js"></script>
+    
+</body>
+</html>
+<!--
+    videos explicativos de drag and drop api 
+    https://www.youtube.com/watch?v=lex-JCYuYEo
+    https://www.youtube.com/watch?v=xu4nvGaBOak
+-->
