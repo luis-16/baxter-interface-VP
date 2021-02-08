@@ -1,0 +1,105 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;    
+    font-family: Roboto-Regular;
+    font-size: 25px;
+    font-weight: bold;
+}
+@font-face {
+    font-family: Roboto-Regular;
+    src: url("../fuentes/Roboto-Regular.ttf");
+}
+#contenedor{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#contenedor1{
+    width: 50%;
+    height: 100%;
+    background: transparent;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+#contenedor2{
+    width: 50%;
+    height: 100%;
+    float: right;
+    margin: auto;
+}
+.cajones{
+    border-radius: 200px;
+}
+.cajones:focus{
+    outline: none;
+    box-shadow: 7px 5px 5px black;
+}
+.boton{
+    border-radius: 5px;
+    background-color: green;
+}
+#imagen1{    
+    background-image: url("imagenes/Login1.jpg");    
+    float: right;
+}
+#imagen2{    
+    background-image: url("imagenes/Login2.jpg");    
+    float: right;
+}
+#imagen3{    
+    background-image: url("imagenes/Login3.jpg");    
+    float: right;
+}
+#imagen4{    
+    background-image: url("imagenes/Login4.png");    
+    float: right;
+}
+.imagenes{
+    width: 40%;
+    height: 80%;
+    margin: 10px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    left: 0%;
+}
+.barras{
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to right,white,green);
+}
+#barra1{
+    top: 0%;
+}
+#barra2{
+    position: absolute;
+    bottom: 0;
+}
+#cuadro{
+    width: 100%;
+    height: calc(100% -100px);
+    margin: auto;
+    position: relative;
+    top: 15%;
+}
+.caja{
+    width: 100%;
+    height: 50%;
+    margin: auto;
+}
+#logo{
+    width: 100px;
+    height: 100%;    
+    background-image: url("imagenes/Logo_EIA.png");
+    background-size: 100%;
+}
