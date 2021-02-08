@@ -1,0 +1,65 @@
+<div id="contenedor-drop" onmousemove="Hacer_camino(event)" numero_objeto="9" objeto_a="2" objeto_c="5" objeto_d="1" objeto_b="1" arrastrado="47.237790292274916" opcion="2.715352387104417" numero_linea="8">
+                <svg id="SVG"><polyline id="Linea_2" draggable="false" points="231,231 231,262.5 115,262.5 115,294" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_2&quot;)" hijo="nodo_superior3" padre="nodo_inferior2"></polyline><polyline id="Linea_3" draggable="false" points="168.328125,307 168.328125,289 266,289 266,271" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_3&quot;)" hijo="nodo_superior4" padre="nodo_izquierdo3"></polyline><polyline id="Linea_4" draggable="false" points="319.328125,284 319.328125,341.5 299,341.5 299,399" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_4&quot;)" hijo="nodo_superior5" padre="nodo_izquierdo4"></polyline><polyline id="Linea_1" draggable="false" points="97,56 97,81 183,81 183,106" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_1&quot;)" hijo="nodo_superior6" padre="nodo_inferior1"></polyline><polyline id="Linea_5" draggable="false" points="183,134 183,89 356,89 356,44" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_5&quot;)" hijo="nodo_superior7" padre="nodo_inferior6"></polyline><polyline id="Linea_6" draggable="false" points="356,72 356,137.5 231,137.5 231,203" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_6&quot;)" hijo="nodo_superior2" padre="nodo_inferior7"></polyline><polyline id="Linea_7" draggable="false" points="238,335 238,317 266,317 266,299" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_7&quot;)" hijo="nodo_inferior4" padre="nodo_superior9"></polyline><polyline id="Linea_8" draggable="false" points="84,381 84,351.5 115,351.5 115,322" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_8&quot;)" hijo="nodo_inferior3" padre="nodo_superior8"></polyline></svg>
+            <div id="objetoC_2" draggable="true" onclick="Click_bloque(objetoC_2)" codigo="0" parametros="" opcion="HOME" padre="objetoC_7" hijo="objetoD_3" lineasuperior="Linea_6" lineainferior="Linea_2" contenido="" style="text-align: center; position: absolute; left: 176px; top: 198px;">
+                    <svg class="svg">
+                        <rect class="objetoC" x="3" y="3" rx="8" ry="8" width="104" height="34"></rect> <!--style="fill:blue;stroke:blue;stroke-width:3;opacity:1" -->
+                    </svg>
+                    <div id="nodo_superior2" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior2)" style="background-color: black;"></div>
+                    ACCIÓN
+                    <div id="nodo_inferior2" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_inferior2)" style="background-color: black;"></div>
+                </div><div id="objetoD_3" draggable="true" onclick="Click_bloque(objetoD_3)" codigo="0" parametros="1" opcion="PARA" padre="objetoC_2" hijo="objetoB_4" lineasuperior="Linea_2" lineainferior="Linea_3" contenido="objetoD_3,objetoC_8" lineainterna="Linea_8" dentro="objetoC_8" nodo_inf="1" dentrono="" style="text-align: center; position: absolute; left: 60px; top: 289px;">                    
+                    <svg class="svg">
+                        <polygon class="objetoD" points="3,20 20,37 90,37 107,20 90,3 20,3"></polygon>
+                    </svg>
+                    <div id="nodo_superior3" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior3)" style="background-color: black;"></div>
+                    PARA
+                    <div id="nodo_inferior3" class="nodo_dentro" estado="1" onclick="Click_nodo(nodo_inferior3)" style="background-color: black;"></div>
+
+                    <div id="nodo_izquierdo3" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_izquierdo3)" style="background-color: black;"></div>
+                </div><div id="objetoB_4" draggable="true" onclick="Click_bloque(objetoB_4)" codigo="0" parametros="" opcion="SI" padre="objetoD_3" hijo="objetoA_5" lineasuperior="Linea_3" lineainferior="Linea_4" contenido="objetoB_4,objetoC_9" lineainterna="Linea_7" dentro="objetoC_9" nodo_inf="1" lineano="" dentrono="" nodo_der="1" style="text-align: center; position: absolute; left: 211px; top: 266px;">                    
+                    <svg class="svg">
+                        <polygon class="objetoB" points="0,20 55,37 110,20 55,3"></polygon>
+                    </svg>                    
+                    <div id="nodo_superior4" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior4)" style="background-color: black;"></div>
+                    SI   
+                    <div id="nodo_inferior4" class="nodo_dentro" estado="1" onclick="Click_nodo(nodo_inferior4)" style="background-color: black;"></div>
+                     
+                    <div id="nodo_izquierdo4" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_izquierdo4)" style="background-color: black;"></div>
+                    <div id="nodo_derecho4" class="nodo_dentro Hidden" estado="0" onclick="Click_nodo(nodo_derecho4)" style="visibility: hidden;"></div>
+                </div><div id="objetoA_5" draggable="true" onclick="Click_bloque(objetoA_5)" codigo="0" parametros="" opcion="FIN" padre="objetoB_4" hijo="" lineasuperior="Linea_4" lineainferior="" contenido="" style="text-align: center; position: absolute; left: 244px; top: 394px;">
+                    <svg class="svg">
+                        <ellipse class="objetoA" cx="55" cy="20" rx="52" ry="17"></ellipse>
+                    </svg>   
+                    <div id="nodo_superior5" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior5)" style="visibility: visible; background-color: black;"></div>FIN<div id="nodo_inferior5" class="nodo_inicio" estado="0" onclick="Click_nodo(nodo_inferior5)" style="visibility: hidden;"></div>
+                </div><div id="objetoA_1" draggable="true" style="opacity: 100; text-align: center; position: absolute; left: 42px; top: 23px;" onclick="Click_bloque(objetoA_1)" codigo="0" parametros="" opcion="INICIO" padre="" hijo="objetoC_6" lineasuperior="" lineainferior="Linea_1" contenido="" lineainterna="" dentro="">
+                    <svg class="svg">
+                        <ellipse class="objetoA" cx="55" cy="20" rx="52" ry="17"></ellipse>
+                    </svg>   
+                    <div id="nodo_superior1" class="nodo_inicio Hidden" estado="0" onclick="Click_nodo(nodo_superior1)"></div>
+                    INICIO
+                    <div id="nodo_inferior1" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_inferior1)" style="background-color: black;"></div>
+                </div><div id="objetoC_6" draggable="true" onclick="Click_bloque(objetoC_6)" codigo="0" parametros="0" opcion="CABEZA" padre="objetoA_1" hijo="objetoC_7" lineasuperior="Linea_1" lineainferior="Linea_5" contenido="" style="text-align: center; position: absolute; left: 128px; top: 101px;">
+                    <svg class="svg">
+                        <rect class="objetoC" x="3" y="3" rx="8" ry="8" width="104" height="34"></rect> <!--style="fill:blue;stroke:blue;stroke-width:3;opacity:1" -->
+                    </svg>
+                    <div id="nodo_superior6" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior6)" style="background-color: black;"></div>CABEZA<div id="nodo_inferior6" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_inferior6)" style="background-color: black;"></div>
+                </div><div id="objetoC_7" draggable="true" onclick="Click_bloque(objetoC_7)" codigo="0" parametros="0,0,0,0,0,0,0" opcion="BRAZO DER." padre="objetoC_6" hijo="objetoC_2" lineasuperior="Linea_5" lineainferior="Linea_6" contenido="" style="text-align: center; position: absolute; left: 301px; top: 39px;">
+                    <svg class="svg">
+                        <rect class="objetoC" x="3" y="3" rx="8" ry="8" width="104" height="34"></rect> <!--style="fill:blue;stroke:blue;stroke-width:3;opacity:1" -->
+                    </svg>
+                    <div id="nodo_superior7" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior7)" style="background-color: black;"></div>BRAZO DER.<div id="nodo_inferior7" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_inferior7)" style="background-color: black;"></div>
+                </div><div id="objetoC_8" draggable="true" onclick="Click_bloque(objetoC_8)" codigo="0" parametros="" opcion="HOME" padre="objetoD_3" hijo="" lineasuperior="Linea_8" lineainferior="" contenido="" style="text-align: center; position: absolute; left: 29px; top: 376px;">
+                    <svg class="svg">
+                        <rect class="objetoC" x="3" y="3" rx="8" ry="8" width="104" height="34"></rect> <!--style="fill:blue;stroke:blue;stroke-width:3;opacity:1" -->
+                    </svg>
+                    <div id="nodo_superior8" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior8)" style="background-color: black;"></div>
+                    ACCIÓN
+                    <div id="nodo_inferior8" class="nodo_inicio" estado="0" onclick="Click_nodo(nodo_inferior8)"></div>
+                </div><div id="objetoC_9" draggable="true" onclick="Click_bloque(objetoC_9)" codigo="0" parametros="" opcion="HOME" padre="objetoB_4" hijo="" lineasuperior="Linea_7" lineainferior="" contenido="" style="text-align: center; position: absolute; left: 183px; top: 330px;">
+                    <svg class="svg">
+                        <rect class="objetoC" x="3" y="3" rx="8" ry="8" width="104" height="34"></rect> <!--style="fill:blue;stroke:blue;stroke-width:3;opacity:1" -->
+                    </svg>
+                    <div id="nodo_superior9" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior9)" style="background-color: black;"></div>
+                    ACCIÓN
+                    <div id="nodo_inferior9" class="nodo_inicio" estado="0" onclick="Click_nodo(nodo_inferior9)"></div>
+                </div></div>

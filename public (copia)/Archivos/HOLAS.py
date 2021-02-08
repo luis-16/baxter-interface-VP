@@ -1,0 +1,140 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+#importar librerias:
+
+import subprocess #para oprimir ctrl+c
+import signal #para oprimir ctrl+c
+import time # delay
+import math as math
+
+import rospy
+
+from std_msgs.msg import (
+    UInt16,
+)
+
+import baxter_interface
+
+from baxter_interface import CHECK_VERSION
+
+class Comandos(object):
+
+    def __init__(self):
+
+        self._pub_rate = rospy.Publisher('robot/joint_state_publish_rate',UInt16, queue_size=10)
+        self._left_arm = baxter_interface.limb.Limb("left")
+        self._right_arm = baxter_interface.limb.Limb("right")
+        self._left_joint_names = self._left_arm.joint_names()
+        self._right_joint_names = self._right_arm.joint_names()
+        self._head = baxter_interface.Head()
+
+        # control parameters
+        self._rate = 1000.0  # Hz
+
+        self._rs = baxter_interface.RobotEnable(CHECK_VERSION)
+        self._init_state = self._rs.state().enabled
+        self._rs.enable()  
+        #print("Habilitando robot... ")
+
+        # set joint state publishing to 500Hz
+        self._pub_rate.publish(self._rate)
+    
+    def finish(self):     
+        if not self._init_state:
+            print("Deshabilitando robot...")
+            self._rs.disable()
+
+    def mover_home(self):
+        #print("Moving to neutral pose...")
+        self._left_arm.move_to_neutral()
+        self._right_arm.move_to_neutral()        
+        self._head.set_pan(0.0)
+
+    def mover_cabeza(self,posicion):
+        self._head.command_nod()
+        command_rate = rospy.Rate(100)
+        control_rate = rospy.Rate(100)
+        start = rospy.get_time()
+        angulo = posicion
+        self._head.set_pan(angulo, speed=0.3, timeout=2)
+        command_rate.sleep()
+
+    def mover_TCD(self,Parametros):
+
+        def Deg_rad(angulos):
+            ANG = []
+            for X in angulos:
+                ANG.append(math.radians(X))
+            return ANG
+
+        def limites(angulos, limites):
+            for X in range(0, 7):
+                if angulos[X] < limites[X][0]:
+                    angulos[X] = limites[X][0]
+                if angulos[X] > limites[X][1]:
+                    angulos[X] = limites[X][1]
+            return angulos
+        
+        Brazo = Parametros[0] # escoger derecho o izquierdo
+        S0 = float(Parametros[1])
+        S0_Limits = [-1.7016, 1.7016]
+        S1 = float(Parametros[2])
+        S1_Limits = [-2.147, 1.047]
+        E0 = float(Parametros[3])
+        E0_Limits = [-3.0541, 3.0541]
+        E1 = float(Parametros[4])
+        E1_Limits = [-0.05, 2.618]
+        W0 = float(Parametros[5])
+        W0_Limits = [-3.059, 3.059]
+        W1 = float(Parametros[6])
+        W1_Limits = [-1.5707, 2.094]
+        W2 = float(Parametros[7])
+        W2_Limits = [-3.059, 3.059]
+
+        Angulos = [S0,S1,E0,E1,W0,W1,W2]
+        Limites = [S0_Limits,S1_Limits,E0_Limits,E1_Limits,W0_Limits,W1_Limits,W2_Limits]
+
+        if Brazo == "I":
+            self._left_arm.move_to_joint_positions(dict(zip(self._left_joint_names ,limites(Deg_rad(Angulos), Limites))))
+        if Brazo == "D":
+            self._right_arm.move_to_joint_positions(dict(zip(self._right_joint_names ,limites(Deg_rad(Angulos), Limites))))
+        
+
+    def mover_gripper(self,gripper,accion):
+            def close(gripper):
+                if gripper == "izquierda":
+                    self.left_gripper.close()
+                if gripper == "derecha":
+                    self.right_gripper.close()
+            
+            def open(gripper):
+                if gripper == "izquierda":
+                    self.left_gripper.open()
+                if gripper == "derecha":
+                    self.right_gripper.open()
+            
+            if accion == "cerrar":
+                close(gripper)
+            
+            if accion == "abrir":
+                open(gripper)
+
+def main():
+    rospy.init_node("programa")
+    robot = Comandos()
+    robot.mover_cabeza(0)
+    time.sleep(0.5)
+    robot.mover_TCD(['D',0,0,0,0,0,0,0])
+    time.sleep(0.5)
+    robot.mover_home()
+    time.sleep(0.5)
+    for X in range(1):
+        robot.mover_home()
+        time.sleep(0.5)
+    if 2 > 1:
+        robot.mover_home()
+        time.sleep(0.5)
+
+if __name__ == '__main__':
+ 	 main()

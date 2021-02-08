@@ -1,0 +1,31 @@
+<div id="contenedor-drop" onmousemove="Hacer_camino(event)" numero_objeto="4" objeto_d="1" objeto_c="2" arrastrado="11.06243371396869" objeto_a="1" numero_linea="3">
+                <svg id="SVG"><polyline id="Linea_1" draggable="false" points="222,90 222,114.5 149,114.5 149,139" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_1&quot;)" hijo="nodo_superior1" padre="nodo_inferior4"></polyline><polyline id="Linea_2" draggable="false" points="149,167 149,226.5 59,226.5 59,286" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_2&quot;)" hijo="nodo_superior2" padre="nodo_inferior1"></polyline><polyline id="Linea_3" draggable="false" points="202.328125,152 202.328125,217.5 265,217.5 265,283" fill="none" stroke="black" stroke-width="5px" onclick="Click_linea(&quot;Linea_3&quot;)" hijo="nodo_superior3" padre="nodo_izquierdo1"></polyline></svg>
+            <div id="objetoD_1" draggable="true" onclick="Click_bloque(objetoD_1)" codigo="0" parametros="1" opcion="PARA" padre="objetoA_4" hijo="objetoC_3" lineasuperior="Linea_1" lineainferior="Linea_3" contenido="" lineainterna="Linea_2" dentro="objetoC_2" nodo_inf="1" style="text-align: center; position: absolute; left: 94px; top: 134px;">                    
+                    <svg class="svg">
+                        <polygon class="objetoD" points="3,20 20,37 90,37 107,20 90,3 20,3"></polygon>
+                    </svg>
+                    <div id="nodo_superior1" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior1)" style="background-color: black;"></div>
+                    PARA
+                    <div id="nodo_inferior1" class="nodo_dentro" estado="1" onclick="Click_nodo(nodo_inferior1)" style="background-color: black;"></div>
+
+                    <div id="nodo_izquierdo1" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_izquierdo1)" style="background-color: black;"></div>
+                </div><div id="objetoC_2" draggable="true" onclick="Click_bloque(objetoC_2)" codigo="0" parametros="" opcion="HOME" padre="objetoD_1" hijo="" lineasuperior="Linea_2" lineainferior="" contenido="" style="text-align: center; position: absolute; left: 4px; top: 281px;">
+                    <svg class="svg">
+                        <rect class="objetoC" x="3" y="3" rx="8" ry="8" width="104" height="34"></rect> <!--style="fill:blue;stroke:blue;stroke-width:3;opacity:1" -->
+                    </svg>
+                    <div id="nodo_superior2" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior2)" style="background-color: black;"></div>
+                    ACCIÓN
+                    <div id="nodo_inferior2" class="nodo_inicio" estado="0" onclick="Click_nodo(nodo_inferior2)"></div>
+                </div><div id="objetoC_3" draggable="true" onclick="Click_bloque(objetoC_3)" codigo="0" parametros="" opcion="HOME" padre="objetoD_1" hijo="" lineasuperior="Linea_3" lineainferior="" contenido="" style="text-align: center; position: absolute; left: 210px; top: 278px;">
+                    <svg class="svg">
+                        <rect class="objetoC" x="3" y="3" rx="8" ry="8" width="104" height="34"></rect> <!--style="fill:blue;stroke:blue;stroke-width:3;opacity:1" -->
+                    </svg>
+                    <div id="nodo_superior3" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_superior3)" style="background-color: black;"></div>ACCIÓN<div id="nodo_inferior3" class="nodo_inicio" estado="0" onclick="Click_nodo(nodo_inferior3)"></div>
+                </div><div id="objetoA_4" draggable="true" onclick="Click_bloque(objetoA_4)" codigo="0" parametros="" opcion="INICIO" padre="" hijo="objetoD_1" lineasuperior="" lineainferior="Linea_1" contenido="" style="text-align: center; position: absolute; left: 167px; top: 57px;">
+                    <svg class="svg">
+                        <ellipse class="objetoA" cx="55" cy="20" rx="52" ry="17"></ellipse>
+                    </svg>   
+                    <div id="nodo_superior4" class="nodo_inicio Hidden" estado="0" onclick="Click_nodo(nodo_superior4)"></div>
+                    INICIO
+                    <div id="nodo_inferior4" class="nodo_inicio" estado="1" onclick="Click_nodo(nodo_inferior4)" style="background-color: black;"></div>
+                </div></div>
